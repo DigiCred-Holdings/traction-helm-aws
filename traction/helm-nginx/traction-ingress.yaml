@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: traction-ingress-final
-  namespace: demo-tenant
+  namespace: digicred-traction
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/enable-cors: "true"
@@ -13,10 +13,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - tractionapp.digicred.services
+    - tractionapp.crms.services
     secretName: tractionapp-tls
   rules:
-  - host: tractionapp.digicred.services
+  - host: tractionapp.crms.services
     http:
       paths:
       - path: /()(.*)
