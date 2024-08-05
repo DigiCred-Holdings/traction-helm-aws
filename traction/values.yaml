@@ -63,6 +63,7 @@ tenantUi:
   config:
     SERVER_TRACTION_URL: "https://tractionapp.crms.services/proxy"
     FRONTEND_TENANT_PROXY_URL: "https://tractionapp.crms.services/proxy"
+    FRONTEND_SIS_PROXY_URL:  "https://controllers-prod.digicred.services:3000"
     IMAGE_BUILDTIME: ""
     IMAGE_TAG: "scripts_tenant-ui:latest"
     IMAGE_VERSION: "latest"

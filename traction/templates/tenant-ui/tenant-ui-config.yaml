@@ -5,6 +5,7 @@ metadata:
 data:
   SERVER_TRACTION_URL: {{ .Values.tenantUi.config.SERVER_TRACTION_URL | quote }}
   FRONTEND_TENANT_PROXY_URL: {{ .Values.tenantUi.config.FRONTEND_TENANT_PROXY_URL | quote }}
+  FRONTEND_SIS_PROXY_URL: {{ .Values.tenantUi.config.FRONTEND_SIS_PROXY_URL | quote }}
   IMAGE_BUILDTIME: {{ .Values.tenantUi.config.IMAGE_BUILDTIME | quote }}
   IMAGE_TAG: {{ .Values.tenantUi.config.IMAGE_TAG | quote }}
   IMAGE_VERSION: {{ .Values.tenantUi.config.IMAGE_VERSION | quote }}
