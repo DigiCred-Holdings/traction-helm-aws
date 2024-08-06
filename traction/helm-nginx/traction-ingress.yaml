@@ -13,10 +13,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - tractionapp.crms.services
+    - tractionapp.digicred.services
     secretName: tractionapp-tls
   rules:
-  - host: tractionapp.crms.services
+  - host: tractionapp.digicred.services
     http:
       paths:
       - path: /()(.*)
