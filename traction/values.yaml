@@ -11,7 +11,7 @@ tractionAgent:
     httpTargetPort: 8030
   config:
     TRACTION_ENV: "cloud"
-    ACAPY_ENDPOINT: "https://tractionapp.crms.services/traction-agent-http"
+    ACAPY_ENDPOINT: "https://tractionapp.digicred.services/traction-agent-http"
     TRACTION_ACAPY_HTTP_PORT: "8030"
     TRACTION_ACAPY_ADMIN_PORT: "8031"
     TRACTION_ACAPY_WALLET_NAME: "digicredcrms-wallet"
@@ -61,8 +61,8 @@ tenantUi:
     targetPort: 8080
     type: ClusterIP
   config:
-    SERVER_TRACTION_URL: "https://tractionapp.crms.services/proxy"
-    FRONTEND_TENANT_PROXY_URL: "https://tractionapp.crms.services/proxy"
+    SERVER_TRACTION_URL: "https://tractionapp.digicred.services/proxy"
+    FRONTEND_TENANT_PROXY_URL: "https://tractionapp.digicred.services/proxy"
     FRONTEND_SIS_PROXY_URL:  "https://controllers-prod.digicred.services:3000"
     IMAGE_BUILDTIME: ""
     IMAGE_TAG: "scripts_tenant-ui:latest"
@@ -103,7 +103,7 @@ endorserAgent:
     RUST_LOG: error
     ACAPY_ENDORSER_ADMIN_PORT: "9031"
     ACAPY_ENDORSER_HTTP_PORT: "9030"
-    ACAPY_ENDORSER_ENDPOINT: "https://tractionapp.crms.services/endorser-agent-http"
+    ACAPY_ENDORSER_ENDPOINT: "https://tractionapp.digicred.services/endorser-agent-http"
     ENDORSER_AGENT_NAME: "Endorser Agent"
     ENDORSER_ACAPY_READ_ONLY_MODE: ""
     ENDORSER_WEBHOOK_URL: "http://endorser-api:5000/webhook"
@@ -123,9 +123,9 @@ endorserApi:
     targetPort: 5000
   config:
     ENVIRONMENT: "production"
-    TRACTION_WEBHOOK_URL: "https://tractionapp.crms.services/endorser-api/webhook"
+    TRACTION_WEBHOOK_URL: "https://tractionapp.digicred.services/endorser-api/webhook"
     ENDORSER_API_PORT: "5000"
-    ACAPY_ADMIN_URL: "https://tractionapp.crms.services/endorser-agent-admin"
+    ACAPY_ADMIN_URL: "https://tractionapp.digicred.services/endorser-agent-admin"
 
 endorserAgent1:
   image:
@@ -141,7 +141,7 @@ endorserAgent1:
     RUST_LOG: error
     ACAPY_ENDORSER_1_ADMIN_PORT: "9033"
     ACAPY_ENDORSER_1_HTTP_PORT: "9032"
-    ACAPY_ENDORSER_1_ENDPOINT: "https://tractionapp.crms.services/endorser-agent-1-http"
+    ACAPY_ENDORSER_1_ENDPOINT: "https://tractionapp.digicred.services/endorser-agent-1-http"
     ENDORSER_AGENT_NAME: "Endorser Agent 1"
     ENDORSER_1_ACAPY_READ_ONLY_MODE: ""
     ENDORSER_1_WEBHOOK_URL: "http://endorser-api-1:5001/webhook"
@@ -161,9 +161,9 @@ endorserApi1:
     targetPort: 5001
   config:
     ENVIRONMENT: "production"
-    TRACTION_WEBHOOK_URL: "https://tractionapp.crms.services/endorser-api-1/webhook"
+    TRACTION_WEBHOOK_URL: "https://tractionapp.digicred.services/endorser-api-1/webhook"
     ENDORSER_API_PORT: "5001"
-    ACAPY_ADMIN_URL: "https://tractionapp.crms.services/endorser-agent-1-admin"
+    ACAPY_ADMIN_URL: "https://tractionapp.digicred.services/endorser-agent-1-admin"
 
 maildev:
   image:
@@ -188,7 +188,7 @@ maildev:
         targetPort: 1025
 
 rds:
-  host: "traction-db.cyxiy96zbopc.ca-central-1.rds.amazonaws.com"
+  host: "crms-traction-rds-instance-1.ceuu7muzv13a.us-west-1.rds.amazonaws.com"
   port: "5432"
   databases:
     traction: "traction_db"

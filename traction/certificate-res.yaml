@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: tractionapp.crms.services
+  commonName: tractionapp.digicred.services
   dnsNames:
-  - tractionapp.crms.services
+  - tractionapp.digicred.services

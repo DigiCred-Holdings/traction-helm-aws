@@ -6,7 +6,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: nas@digicred.co
+    email: honey@digicred.co
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
