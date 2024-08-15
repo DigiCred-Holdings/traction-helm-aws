@@ -11,4 +11,5 @@ spec:
   ports:
     - port: {{ .Values.tenantUi.service.port }}
       targetPort: {{ .Values.tenantUi.service.targetPort }}
-      targetPort: http
+      protocol: TCP
+      name: http

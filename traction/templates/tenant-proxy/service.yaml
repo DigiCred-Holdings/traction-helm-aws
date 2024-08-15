@@ -2,10 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tenant-proxy
-spec:
-  selector:
+  labels:
     app: tenant-proxy
+spec:
+  type: {{ .Values.tenantProxy.service.type }}
   ports:
     - port: {{ .Values.tenantProxy.service.port }}
       targetPort: {{ .Values.tenantProxy.service.targetPort }}
       name: http
+  selector:
+    app: tenant-proxy

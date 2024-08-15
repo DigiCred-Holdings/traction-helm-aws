@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: tractionapp-tls
+  name: controller-tls
   namespace: digicred-traction
 spec:
-  secretName: tractionapp-tls
+  secretName: controller-tls
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: tractionapp.digicred.services
+  commonName: controllersprod.digicred.services
   dnsNames:
-  - tractionapp.digicred.services
+  - controllersprod.digicred.services

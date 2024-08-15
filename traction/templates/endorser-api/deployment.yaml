@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: endorser-api
+  labels:
+    app: endorser-api
 spec:
   replicas: 1
   selector:
@@ -15,7 +17,7 @@ spec:
       containers:
         - name: endorser-api
           image: "{{ .Values.endorserApi.image.repository }}:{{ .Values.endorserApi.image.tag }}"
-          imagePullPolicy: {{ .Values.endorserApi.image.pullPolicy }}
+          imagePullPolicy: "{{ .Values.endorserApi.image.pullPolicy }}"
           ports:
             - containerPort: {{ .Values.endorserApi.service.targetPort }}
           envFrom:

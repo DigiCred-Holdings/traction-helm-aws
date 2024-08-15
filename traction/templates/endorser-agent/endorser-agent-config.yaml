@@ -5,17 +5,18 @@ metadata:
   labels:
     app: endorser-agent
 data:
-  RUST_LOG: error
-  ACAPY_ENDORSER_ADMIN_PORT: "9031"
-  ACAPY_ENDORSER_HTTP_PORT: "9030"
-  ACAPY_ENDORSER_ENDPOINT: "https://tractionapp.digicred.services/endorser-agent-http"
-  ENDORSER_AGENT_NAME: "Endorser Agent"
-  ENDORSER_ACAPY_READ_ONLY_MODE: ""
-  ENDORSER_WEBHOOK_URL: "http://endorser-api:5000/webhook"
-  ACAPY_GENESIS_URL: "http://genesis.digicred.services:9000/genesis"
-  ENDORSER_ACAPY_WALLET_TYPE: "askar"
-  ENDORSER_ACAPY_WALLET_STORAGE_TYPE: "postgres_storage"
-  ENDORSER_ACAPY_WALLET_DATABASE: "endorser-wallet"
-  ENDORSER_POSTGRESQL_HOST: "endorser-db"
-  POSTGRESQL_DB: "traction_acapy"
+  RUST_LOG: {{ .Values.endorserAgent.config.RUST_LOG | quote }}
+  ACAPY_ENDORSER_ADMIN_PORT: {{ .Values.endorserAgent.config.ACAPY_ENDORSER_ADMIN_PORT | quote }}
+  ACAPY_ENDORSER_HTTP_PORT: {{ .Values.endorserAgent.config.ACAPY_ENDORSER_HTTP_PORT | quote }}
+  ACAPY_ENDORSER_ENDPOINT: {{ .Values.endorserAgent.config.ACAPY_ENDORSER_ENDPOINT | quote }}
+  ENDORSER_AGENT_NAME: {{ .Values.endorserAgent.config.ENDORSER_AGENT_NAME | quote }}
+  ENDORSER_ACAPY_READ_ONLY_MODE: {{ .Values.endorserAgent.config.ENDORSER_ACAPY_READ_ONLY_MODE | quote }}
+  ENDORSER_WEBHOOK_URL: {{ .Values.endorserAgent.config.ENDORSER_WEBHOOK_URL | quote }}
+  ACAPY_GENESIS_URL: {{ .Values.endorserAgent.config.ACAPY_GENESIS_URL | quote }}
+  ENDORSER_ACAPY_WALLET_TYPE: {{ .Values.endorserAgent.config.ENDORSER_ACAPY_WALLET_TYPE | quote }}
+  ENDORSER_ACAPY_WALLET_STORAGE_TYPE: {{ .Values.endorserAgent.config.ENDORSER_ACAPY_WALLET_STORAGE_TYPE | quote }}
+  ENDORSER_ACAPY_WALLET_DATABASE: {{ .Values.endorserAgent.config.ENDORSER_ACAPY_WALLET_DATABASE | quote }}
+  ENDORSER_POSTGRESQL_HOST: {{ .Values.rds.host | quote }}
+  POSTGRESQL_PORT: {{ .Values.rds.port | quote }}
+  POSTGRESQL_DB: {{ .Values.rds.databases.endorser | quote }}
   

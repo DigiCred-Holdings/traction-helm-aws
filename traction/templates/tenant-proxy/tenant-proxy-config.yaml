@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: tenant-proxy-config
 data:
-  ACAPY_ADMIN_URL: "http://traction-agent:8031"
+  ACAPY_ADMIN_URL: {{ .Values.tenantProxy.config.ACAPY_ADMIN_URL | quote }}

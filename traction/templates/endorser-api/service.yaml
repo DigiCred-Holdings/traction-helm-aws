@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: endorser-api
+  labels:
+    app: endorser-api
 spec:
   type: {{ .Values.endorserApi.service.type }}
   ports:
