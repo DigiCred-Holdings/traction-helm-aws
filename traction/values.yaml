@@ -63,7 +63,7 @@ tenantUi:
   config:
     SERVER_TRACTION_URL: "https://tractionapp.digicred.services/proxy"
     FRONTEND_TENANT_PROXY_URL: "https://tractionapp.digicred.services/proxy"
-    FRONTEND_SIS_PROXY_URL:  "https://controllers-prod.digicred.services:3000"
+    #FRONTEND_SIS_PROXY_URL:  "https://tractionapp.digicred.services/controller"
     IMAGE_BUILDTIME: ""
     IMAGE_TAG: "scripts_tenant-ui:latest"
     IMAGE_VERSION: "latest"
@@ -194,3 +194,51 @@ rds:
     traction: "traction_db"
     endorser: "endorser_db"
     endorser1: "endorser_db_1"
+
+controller:
+  image:
+    repository: "ghcr.io/digicred-holdings/cape-fear-aca-py-controller"
+    tag: "latest"
+    pullPolicy: Always
+  service:
+    port: 3000
+    targetPort: 3000
+    type: ClusterIP
+  config:
+    API_BASE_URL: "https://tractionapp.digicred.services"
+    SWAGGER_API_URL: "https://tractionapp.digicred.services"
+    REDIS_DB: "0"
+    REDIS_TLS: "true"
+    SCHOOL: "Cape Fear Community College"
+    SCHOOL_WELCOME_MESSAGE: "Welcome to the Cape Fear Community College credential service!"
+    ISSUE_STUDENT_ID_MESSAGE: "We are sending you your student ID credential.  You will be able to use this to prove that you are a current student at your school. Click View Offer and Accept to receive your Student ID."
+    ISSUE_STUDENT_TRANSCRIPT_MESSAGE: "We are sending you your student transcript credential.  You will be able to use this to demonstrate your scholastic accomplishments. Click View Offer and Accept to receive your Transcript."
+    REQUEST_STUDENT_ID_VERIFICATION_MESSAGE: "We need to verify your student ID."
+    REQUEST_STUDENT_TRANSCRIPT_VERIFICATION_MESSAGE: "We need to verify your transcript."
+    ID_SCHEMA_NAME: "US State College Student ID"
+    TRANSCRIPT_SCHEMA_NAME: "US State College Transcript"
+    TRANSCRIPT_CREDENTIAL_DEFINITION_ID: "HN4btM4Ddfzm3gbAPhaD2b:3:CL:99:Cape Fear Community College Transcript"
+    STUDENTID_CREDENTIAL_DEFINITION_ID: "HN4btM4Ddfzm3gbAPhaD2b:3:CL:100:Cape Fear Community College Student ID"
+    NEW_ORIENTATION_CRED_DEF_ID: "UqANLBW7swYSJ4GzCyd1ww:3:CL:295:Cape-Fear-New-Student-Orientation-Event-Admission"
+    STUDENTID_EXPIRATION: "20250101"
+    ELLUCIAN_BASE_API_URL: "https://integrate.elluciancloud.com"
+    ELLUCIAN_PERSON_API_ROUTE: "/api/persons"
+    ELLUCIAN_TRANSCRIPT_API_ROUTE: "/api/student-transcript-grades"
+    ELLUCIAN_GRADE_POINT_AVERAGE_API_ROUTE: "/api/student-grade-point-averages"
+    ELLUCIAN_STUDENT_API_ROUTE: "/api/students"
+    ELLUCIAN_SECTIONS_API_ROUTE: "/api/sections"
+    ELLUCIAN_COURSES_API_ROUTE: "/api/courses"
+    ELLUCIAN_ACADEMIC_PERIOD_API_ROUTE: "/api/academic-periods"
+    ELLUCIAN_ACADEMIC_GRADE_DEF_API_ROUTE: "/api/grade-definitions"
+    ELLUCIAN_AUTH_ROUTE: "/auth"
+    PORT: "3000"
+
+rds1:
+  host: "workflow-db-instance-1.ceuu7muzv13a.us-west-1.rds.amazonaws.com"
+  port: "5432"
+  databases:
+    workflowdb: "cape_fear_workflow_db"
+
+redis:
+  host: "master.cfcc-demo.zj7wuv.usw1.cache.amazonaws.com"
+  port: "6379"
