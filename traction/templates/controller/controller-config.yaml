@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: controller-config
+  labels:
+    app: cfcc-controller
+data: 
+  API_BASE_URL: {{ .Values.controller.config.API_BASE_URL | quote }}
+  SWAGGER_API_URL: {{ .Values.controller.config.SWAGGER_API_URL | quote }}
+  REDIS_DB: {{ .Values.controller.config.REDIS_DB | quote }}
+  REDIS_TLS: {{ .Values.controller.config.REDIS_TLS | quote }}
+  REDIS_PORT: {{ .Values.redis.port | quote }}
+  REDIS_HOST: {{ .Values.redis.host | quote }}
+  WORKFLOW_DB_HOST: {{ .Values.rds1.host | quote }}
+  WORKFLOW_DB_NAME: {{ .Values.rds1.databases.workflowdb | quote }}
+  WORKFLOW_DB_PORT: {{ .Values.rds1.port | quote }}
+  SCHOOL: {{ .Values.controller.config.SCHOOL | quote }}
+  SCHOOL_WELCOME_MESSAGE: {{ .Values.controller.config.SCHOOL_WELCOME_MESSAGE | quote }}
+  ISSUE_STUDENT_ID_MESSAGE: {{ .Values.controller.config.ISSUE_STUDENT_ID_MESSAGE | quote }}
+  ISSUE_STUDENT_TRANSCRIPT_MESSAGE: {{ .Values.controller.config.ISSUE_STUDENT_TRANSCRIPT_MESSAGE | quote }}
+  REQUEST_STUDENT_ID_VERIFICATION_MESSAGE: {{ .Values.controller.config.REQUEST_STUDENT_ID_VERIFICATION_MESSAGE | quote }}
+  REQUEST_STUDENT_TRANSCRIPT_VERIFICATION_MESSAGE: {{ .Values.controller.config.REQUEST_STUDENT_TRANSCRIPT_VERIFICATION_MESSAGE | quote }}
+  ID_SCHEMA_NAME: {{ .Values.controller.config.ID_SCHEMA_NAME | quote }}
+  TRANSCRIPT_SCHEMA_NAME: {{ .Values.controller.config.TRANSCRIPT_SCHEMA_NAME | quote }}
+  TRANSCRIPT_CREDENTIAL_DEFINITION_ID: {{ .Values.controller.config.TRANSCRIPT_CREDENTIAL_DEFINITION_ID | quote }}
+  STUDENTID_CREDENTIAL_DEFINITION_ID: {{ .Values.controller.config.STUDENTID_CREDENTIAL_DEFINITION_ID | quote }}
+  NEW_ORIENTATION_CRED_DEF_ID: {{ .Values.controller.config.NEW_ORIENTATION_CRED_DEF_ID | quote }}
+  STUDENTID_EXPIRATION: {{ .Values.controller.config.STUDENTID_EXPIRATION | quote }}
+  ELLUCIAN_BASE_API_URL: {{ .Values.controller.config.ELLUCIAN_BASE_API_URL | quote }}
+  ELLUCIAN_PERSON_API_ROUTE: {{ .Values.controller.config.ELLUCIAN_PERSON_API_ROUTE | quote }}
+  ELLUCIAN_TRANSCRIPT_API_ROUTE: {{ .Values.controller.config.ELLUCIAN_TRANSCRIPT_API_ROUTE | quote }}
+  ELLUCIAN_GRADE_POINT_AVERAGE_API_ROUTE: {{ .Values.controller.config.ELLUCIAN_GRADE_POINT_AVERAGE_API_ROUTE | quote }}
+  ELLUCIAN_STUDENT_API_ROUTE: {{ .Values.controller.config.ELLUCIAN_STUDENT_API_ROUTE | quote }}
+  ELLUCIAN_SECTIONS_API_ROUTE: {{ .Values.controller.config.ELLUCIAN_SECTIONS_API_ROUTE | quote }}
+  ELLUCIAN_COURSES_API_ROUTE: {{ .Values.controller.config.ELLUCIAN_COURSES_API_ROUTE | quote }}
+  ELLUCIAN_ACADEMIC_PERIOD_API_ROUTE: {{ .Values.controller.config.ELLUCIAN_ACADEMIC_PERIOD_API_ROUTE | quote }}
+  ELLUCIAN_ACADEMIC_GRADE_DEF_API_ROUTE: {{ .Values.controller.config.ELLUCIAN_ACADEMIC_GRADE_DEF_API_ROUTE | quote }}
+  ELLUCIAN_AUTH_ROUTE: {{ .Values.controller.config.ELLUCIAN_AUTH_ROUTE | quote }}
+  PORT: {{ .Values.controller.config.PORT | quote }}
